@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require 'watchr'
+
+
+script = Watchr::Script.new
+script.watch( '(component\/)?.*\.(haml|rb)' ) { |md| build md }
+
+#Signal.trap('QUIT') { build }       # Ctrl-\
+#Signal.trap('INT') { abort("\n") } # Ctrl-C
+
+# --------------------------------------------------
+# Helpers
+# --------------------------------------------------
+def build(md)
+  puts md
+  system "mdk"
+  puts("rebuild _index.html")
+end
+
+# --------------------------------------------------
+# Block
+# --------------------------------------------------
+handler = Watchr.handler.new;
+controller = Watchr::Controller.new(script,handler);
+controller.run # does block!

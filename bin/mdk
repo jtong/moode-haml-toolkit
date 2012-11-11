@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'moode-haml-jqm'
+require 'jt-partial'
+
+generate('index')
