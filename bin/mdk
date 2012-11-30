@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+if File.exist? "component/custom.rb"
+  load "component/custom.rb"
+end
+
 require 'moode-haml-jqm'
 require 'jt-partial'
 
