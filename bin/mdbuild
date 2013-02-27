@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "thor"
+require "thor/group"
+
+@@project_name = ARGV[0]
+
+class WebBuild < Thor::Group
+  include Thor::Actions
+  source_root Dir.pwd
+  def initialize(args=[], options={}, config={})
+    super
+    self.destination_root= "../app/assets/www"
+  end
+
+  def compile_html
+    run "mdk"
+  end
+  def copy_page
+    copy_file "index.html"
+  end
+
+  def copy_css
+    directory :css
+  end
+
+  def copy_js
+    directory :js
+  end
+
+  def copy_lib
+    directory :lib
+  end
+
+  def copy_image
+    directory :img
+  end
+
+end
+
+WebBuild.start
