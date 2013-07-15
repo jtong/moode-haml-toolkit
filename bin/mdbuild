@@ -15,10 +15,12 @@ class WebBuild < Thor::Group
   end
 
   def compile_html
-    run "mdk"
+    run "gen"
   end
+
   def copy_page
     copy_file "index.html"
+    directory :pages
   end
 
   def copy_css

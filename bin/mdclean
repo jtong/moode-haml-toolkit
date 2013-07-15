@@ -16,6 +16,7 @@ class WebBuild < Thor::Group
 
   def delete_page
     remove_file "index.html"
+    remove_dir "pages"
   end
 
   def copy_css
