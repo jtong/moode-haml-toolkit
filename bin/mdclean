@@ -36,7 +36,7 @@ class WebBuild < Thor::Group
   end
 
   def remove_resource
-    remove_dir :res
+    remove_dir "res"
   end
 
 end
