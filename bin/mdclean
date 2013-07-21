@@ -19,20 +19,24 @@ class WebBuild < Thor::Group
     remove_dir "pages"
   end
 
-  def copy_css
+  def remove_css
     remove_dir "css"
   end
 
-  def copy_js
+  def remove_js
     remove_dir "js"
   end
 
-  def copy_lib
+  def remove_lib
     remove_dir "lib"
   end
 
-  def copy_image
+  def remove_image
     remove_dir "img"
+  end
+
+  def remove_resource
+    remove_dir :res
   end
 
 end

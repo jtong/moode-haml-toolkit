@@ -39,6 +39,9 @@ class WebBuild < Thor::Group
     directory :img
   end
 
+  def copy_resource
+    directory :res
+  end
 end
 
 WebBuild.start
