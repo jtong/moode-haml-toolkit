@@ -1,11 +1,15 @@
 #!/usr/bin/env ruby
 
+require 'haml'
 require 'moode-haml-toolkit/component_helper'
+require 'jt-partial'
 if File.exist? "component/custom.rb"
   load "component/custom.rb"
 end
 require 'moode-haml-toolkit/component_generator'
-require 'jt-partial'
+
+require 'moode-haml-component-angular'
+
 
 js_files = File.join("hamls","pages","**", "*.haml")
 prefix = "hamls/"
