@@ -11,9 +11,9 @@ require 'moode-haml-toolkit/component_generator'
 require 'moode-haml-component-angular'
 
 
-js_files = File.join("hamls","pages","**", "*.haml")
+haml_pages = File.join("hamls","pages","**", "*.haml")
 prefix = "hamls/"
-Dir.glob js_files do |file|
+Dir.glob haml_pages do |file|
 
   file_path_without_haml = "#{file[prefix.length, file.length-5-prefix.length]}"
   output_path = file_path_without_haml[0,file_path_without_haml.rindex('/')]
