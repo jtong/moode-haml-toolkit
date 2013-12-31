@@ -10,6 +10,10 @@ require 'moode-haml-toolkit/component_generator'
 
 require 'moode-haml-component-angular'
 
+if File.exist? "hook.rb"
+  load "hook.rb"
+end
+
 
 haml_pages = File.join("hamls","pages","**", "*.haml")
 prefix = "hamls/"
@@ -30,3 +34,5 @@ end
 output = haml_render("hamls/index.haml")
 html_page = File.new("index.html", "w")
 html_page.write(output)
+
+`rake gen:after`
